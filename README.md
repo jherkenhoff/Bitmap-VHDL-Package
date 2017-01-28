@@ -1,7 +1,7 @@
 # Bitmap VHDL Package
 
 
-## 1 Overview
+## Overview
 Debugging image processing pipelines is very challenging.
 Running the design on real hardware lets you see what your image actually looks like, but lacks the in depth information a simulator can provide. The other way around you are able to see whats happening to your signals inside your design, but not how those signals translate to your image.
 
@@ -13,9 +13,9 @@ This way you can test your pipeline with real images.
 
 Of course the files provided are **not synthesizable**, since it uses file IO on the host.
 
-## 2 Customizing
+## Customizing
 You may build your own glue-logic to fit your specific video-bus by utilizing the low level bitmap access functions provided in the bmp_pkg.vhd file.
 
-## 3 TODO
+## TODO
 - [ ] Add support for sourcing image sequences
 - [ ] VGA to Bitmap module
