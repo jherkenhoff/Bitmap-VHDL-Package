@@ -35,6 +35,9 @@ end entity;
 
 architecture behavioural of bmp_sink is
 
+    signal x    : natural := 0;
+    signal y    : natural := 0;
+
 begin
 
 
@@ -43,48 +46,47 @@ begin
         variable sink_bmp : bmp_ptr;
         variable sink_pix : bmp_pix;
         variable is_bmp_created : boolean := false;
-
-        variable x : natural := 0;
-        variable y : natural := 0;
+        variable is_bmp_saved : boolean := false;
     begin
 
+        -- Create bitmap on startup
         if is_bmp_created = false then
             sink_bmp := new bmp;
             is_bmp_created := true;
         end if;
 
         if rising_edge( clk_i ) then
-
             if rst_i = '1' then
-                x := 0;
-                y := 0;
+                x <= 0;
+                y <= 0;
             else
-
                 if val_i = '1' then
                     sink_pix.r := dat_i(23 downto 16);
                     sink_pix.g := dat_i(15 downto 8);
                     sink_pix.b := dat_i(7 downto 0);
+                    
                     bmp_set_pix( sink_bmp, x, y, sink_pix );
-
+                    
                     if eol_i = '1' then
+                        x <= 0;
                         if eof_i = '1' then
-                            y := 0;
-                            bmp_save( sink_bmp, FILENAME );
+                            y <= 0;
+                            -- Frame completed. Save to bitmap..
+                            if is_bmp_saved = false then
+                                bmp_save( sink_bmp, FILENAME );
+                                is_bmp_saved := true;
+                            end if;
                         else
-                            y := y + 1;
+                            y <= y + 1;
                         end if;
-                        x := 0;
                     else
-                        x := x + 1;
+                        x <= x + 1;
                     end if;
-
-
-
                 end if;
             end if;
         end if;
-
     end process;
 
 
 end architecture;
+

@@ -15,10 +15,10 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 
-package bitmap_pkg is
+package bmp_pkg is
 
-    constant BMP_MAX_WIDTH : integer := 600;
-    constant BMP_MAX_HEIGHT : integer := 600;
+    constant BMP_MAX_WIDTH : integer := 640;
+    constant BMP_MAX_HEIGHT : integer := 480;
 
     subtype bmp_slv8_t is std_logic_vector(7 downto 0);
     subtype bmp_slv16_t is std_logic_vector(15 downto 0);
@@ -66,11 +66,11 @@ package bitmap_pkg is
     procedure bmp_set_pix ( ptr : inout bmp_ptr; x: in natural; y : in natural; pix : in bmp_pix );
 
 
-end package bitmap_pkg;
+end package bmp_pkg;
 
 
 
-package body bitmap_pkg is
+package body bmp_pkg is
 
 
     ----------------------------------------------------------------------------
@@ -252,14 +252,15 @@ package body bitmap_pkg is
         ptr.data(y)(x) := pix;
 
         -- Increase image size if nessecary
-        if x > ptr.meta.width then
-            ptr.meta.width := x;
+        if x+1 > ptr.meta.width then
+            ptr.meta.width := x+1;
         end if;
 
-        if y > ptr.meta.height then
-            ptr.meta.height := y;
+        if y+1 > ptr.meta.height then
+            ptr.meta.height := y+1;
         end if;
     end bmp_set_pix;
 
 
-end bitmap_pkg;
+end bmp_pkg;
+
