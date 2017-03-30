@@ -40,6 +40,8 @@ architecture behavioural of bmp_sink is
 
 begin
 
+    rdy_o <= not halt_i when rising_edge(clk_i);
+
 
 
     sink_process : process( clk_i )
@@ -60,22 +62,22 @@ begin
                 x <= 0;
                 y <= 0;
             else
-                if val_i = '1' then
+                if val_i = '1' and halt_i = '0' then
                     sink_pix.r := dat_i(23 downto 16);
                     sink_pix.g := dat_i(15 downto 8);
                     sink_pix.b := dat_i(7 downto 0);
-                    
+
                     bmp_set_pix( sink_bmp, x, y, sink_pix );
-                    
+
                     if eol_i = '1' then
                         x <= 0;
                         if eof_i = '1' then
                             y <= 0;
                             -- Frame completed. Save to bitmap..
-                            if is_bmp_saved = false then
+                            --if is_bmp_saved = false then
                                 bmp_save( sink_bmp, FILENAME );
                                 is_bmp_saved := true;
-                            end if;
+                            --end if;
                         else
                             y <= y + 1;
                         end if;
@@ -89,4 +91,3 @@ begin
 
 
 end architecture;
-

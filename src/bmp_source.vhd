@@ -12,7 +12,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-use work.bitmap_pkg.all;
+use work.bmp_pkg.all;
 
 entity bmp_source is
     generic (
@@ -81,10 +81,10 @@ begin
 
 
 
-                        if x = source_bmp.meta.width then -- EOL
+                        if x = source_bmp.meta.width-1 then -- EOL
                             eol_o <= '1';
                             x := 0;
-                            if y = source_bmp.meta.height then -- EOF
+                            if y = source_bmp.meta.height-1 then -- EOF
                                 eof_o <= '1';
                                 y := 0;
                                 iteration := iteration + 1;
