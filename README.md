@@ -18,4 +18,4 @@ You may build your own glue-logic to fit your specific video-bus by utilizing th
 
 ## TODO
 - [ ] Add support for sourcing image sequences
-- [ ] VGA to Bitmap module
+- [ ] Unit tests for all modules
