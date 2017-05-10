@@ -17,7 +17,8 @@ use work.bmp_pkg.all;
 
 entity bmp_sink is
     generic (
-        FILENAME : string
+        FILENAME    : string;
+        SEQUENCE    : string := "TRUE"
     );
     port (
         clk_i       : in    std_logic;
@@ -37,6 +38,7 @@ architecture behavioural of bmp_sink is
 
     signal x    : natural := 0;
     signal y    : natural := 0;
+    signal iteration    : integer := 0;
 
 begin
 
@@ -66,18 +68,24 @@ begin
                     sink_pix.r := dat_i(23 downto 16);
                     sink_pix.g := dat_i(15 downto 8);
                     sink_pix.b := dat_i(7 downto 0);
-
+                    
                     bmp_set_pix( sink_bmp, x, y, sink_pix );
-
+                    
                     if eol_i = '1' then
                         x <= 0;
                         if eof_i = '1' then
                             y <= 0;
                             -- Frame completed. Save to bitmap..
-                            --if is_bmp_saved = false then
-                                bmp_save( sink_bmp, FILENAME );
+                            if SEQUENCE = "FALSE" then
+                                if is_bmp_saved = false then
+                                    bmp_save( sink_bmp, FILENAME & ".bmp" );
+                                    is_bmp_saved := true;
+                                end if;
+                            elsif SEQUENCE = "TRUE" then
+                                bmp_save( sink_bmp, FILENAME & "_" & INTEGER'IMAGE(iteration) & ".bmp" );
                                 is_bmp_saved := true;
-                            --end if;
+                            end if;
+                            iteration <= iteration + 1;
                         else
                             y <= y + 1;
                         end if;
@@ -91,3 +99,4 @@ begin
 
 
 end architecture;
+
