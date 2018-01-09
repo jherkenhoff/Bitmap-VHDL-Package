@@ -15,6 +15,7 @@ Of course the files provided are **not synthesizable**, since it uses file IO on
 
 ## Customizing
 You may build your own glue-logic to fit your specific video-bus by utilizing the low level bitmap access functions provided in the bmp_pkg.vhd file.
+Take a look at bmp_sink.vhd and bmp_source.vhd.
 
 ## Running the tests
 

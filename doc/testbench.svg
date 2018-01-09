@@ -574,7 +574,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="484.57001"
+     inkscape:cx="350.92683"
      inkscape:cy="186.70141"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -686,20 +686,20 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot5354"
-       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;"
        transform="matrix(0.26458333,0,0,0.26458333,14.552083,220.61459)"><flowRegion
          id="flowRegion5356"
-         style="text-align:center;letter-spacing:0px;text-anchor:middle"><rect
+         style="text-align:center;letter-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;"><rect
            id="rect5358"
            width="240.00003"
            height="64.999985"
            x="295.00003"
            y="138.70082"
-           style="text-align:center;letter-spacing:0px;text-anchor:middle" /></flowRegion><flowPara
+           style="text-align:center;letter-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;" /></flowRegion><flowPara
          id="flowPara5362"
-         style="font-size:24.0000003px;letter-spacing:0px;fill:#ffffff;fill-opacity:1">Image pipeline</flowPara><flowPara
+         style="font-size:24.0000003px;letter-spacing:0px;fill:#ffffff;fill-opacity:1;">Image pipeline</flowPara><flowPara
          id="flowPara5366"
-         style="font-size:16px;letter-spacing:0.98000002px;fill:#ffffff;fill-opacity:1">(Device under test)</flowPara></flowRoot>    <rect
+         style="font-size:16px;letter-spacing:0.98000002px;fill:#ffffff;fill-opacity:1;">(Device under test)</flowPara></flowRoot>    <rect
        style="fill:#fad7b3;fill-opacity:1;stroke:none;stroke-width:0.36500001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="rect5546"
        width="21.166677"
