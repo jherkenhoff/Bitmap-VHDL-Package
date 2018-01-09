@@ -5,7 +5,7 @@
 -- Description:
 --      Low level access to bitmap files
 --
--- Target: GHDL
+-- Target: Simulator
 -- Dependencies: none
 -------------------------------------------------------------------------------
 

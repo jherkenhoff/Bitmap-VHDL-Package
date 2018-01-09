@@ -5,7 +5,7 @@
 -- Description:
 --      Takes a data stream and saves it to a bitmap image
 
--- Target: GHDL
+-- Target: Simulator
 -- Dependencies: bmp_pkg.vhd
 -------------------------------------------------------------------------------
 

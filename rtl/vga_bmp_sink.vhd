@@ -1,3 +1,14 @@
+-------------------------------------------------------------------------------
+-- File       : vga_bmp_sink.vhd
+-- Author     : mr-kenhoff
+-------------------------------------------------------------------------------
+-- Description:
+--     Saves a conventional VGA-Standard input into a .bmp File
+--
+-- Target: Simulator
+-- Dependencies: bmp_pkg.vhd
+-------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 

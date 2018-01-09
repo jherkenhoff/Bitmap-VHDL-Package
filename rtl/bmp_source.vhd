@@ -4,7 +4,7 @@
 -------------------------------------------------------------------------------
 -- Description:
 --      Outputs a bitmap image as a data stream
--- Target: GHDL
+-- Target: Simulator
 -- Dependencies: bmp_pkg.vhd
 -------------------------------------------------------------------------------
 
